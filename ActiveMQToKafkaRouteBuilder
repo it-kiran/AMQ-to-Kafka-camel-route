@@ -18,5 +18,3 @@ public class ActiveMQToKafkaRouteBuilder extends RouteBuilder {
     }
 }
 
-In this example, replace queueName with the name of the ActiveMQ queue you want to consume messages from, and replace topicName with the name of the Kafka topic you want to produce messages to. Also, replace the Kafka broker hosts and ports with the actual values of your Kafka cluster. Finally, replace camel with a unique identifier for the Camel producer client.
-Was this response better or worse?
