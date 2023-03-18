@@ -1,0 +1,22 @@
+import org.apache.camel.builder.RouteBuilder;
+
+public class ActiveMQToKafkaRouteBuilder extends RouteBuilder {
+
+    @Override
+    public void configure() throws Exception {
+        
+        // Define the ActiveMQ endpoint to consume messages from the queue
+        String activeMQEndpoint = "activemq:queue:queueName";
+        
+        // Define the Kafka endpoint to produce messages to the topic
+        String kafkaEndpoint = "kafka:topicName?brokers=host1:port1,host2:port2&clientId=camel";
+        
+        // Define the Camel route to consume messages from the ActiveMQ queue and produce them to the Kafka topic
+        from(activeMQEndpoint)
+            .routeId("ActiveMQToKafkaRoute")
+            .to(kafkaEndpoint);
+    }
+}
+
+In this example, replace queueName with the name of the ActiveMQ queue you want to consume messages from, and replace topicName with the name of the Kafka topic you want to produce messages to. Also, replace the Kafka broker hosts and ports with the actual values of your Kafka cluster. Finally, replace camel with a unique identifier for the Camel producer client.
+Was this response better or worse?
